@@ -32,3 +32,6 @@ func apply_torque_impulse(torque: float) -> void:
 ```
 
 ![fixed demo gif](https://github.com/krscott/godot-rigidbody-bug-demo/blob/master/demo-workaround.gif?raw=true)
+
+## Bug Report
+https://github.com/godotengine/godot/issues/41396
