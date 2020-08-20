@@ -2,6 +2,7 @@
 A demo of a potential bug with RigidBody2D.
 
 ## Environment
+Windows 10 64-bit
 Godot v3.2.2.stable.official
 
 ## Description
