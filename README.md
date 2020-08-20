@@ -30,3 +30,5 @@ func apply_torque_impulse(torque: float) -> void:
 		can_sleep = false
 		can_sleep = original_can_sleep
 ```
+
+![fixed demo gif](https://github.com/krscott/godot-rigidbody-bug-demo/blob/master/demo-workaround.gif?raw=true)
