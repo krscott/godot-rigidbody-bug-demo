@@ -51,6 +51,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+workaround = false
 __info_label_path = NodePath("../../Label")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MotorDelay/Paddle"]
@@ -83,7 +84,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-delay_force = false
 __info_label_path = NodePath("../../Label2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MotorImmediate/Paddle"]
