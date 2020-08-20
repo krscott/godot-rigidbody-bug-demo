@@ -5,7 +5,7 @@ A demo of a potential bug with RigidBody2D.
 Godot v3.2.2.stable.official
 
 ## Description
-It seems like if a RigidBody2D is stationary for a while, it can no longer be affected by apply_impulse_torque().
+It seems like if a RigidBody2D is sleeping, it can not be affected by apply_impulse_torque().
 
 In this demo, there are two spinning paddles running `apply_torque_impulse` every frame (See [Paddle.gd](Paddle.gd)).
 The paddle on the right has a force applied to it immediately.
