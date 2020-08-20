@@ -1,0 +1,135 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Paddle.gd" type="Script" id=1]
+[ext_resource path="res://Demo.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 72, 8 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 8.0
+
+[node name="Demo" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2( 192, 96 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Ball"]
+polygon = PoolVector2Array( -8, -8, 8, -8, 8, 8, -8, 8 )
+
+[node name="Ball2" type="RigidBody2D" parent="."]
+position = Vector2( 448, 96 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball2"]
+shape = SubResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Ball2"]
+polygon = PoolVector2Array( -8, -8, 8, -8, 8, 8, -8, 8 )
+
+[node name="MotorDelay" type="Node2D" parent="."]
+position = Vector2( 128, 384 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Paddle" type="RigidBody2D" parent="MotorDelay"]
+gravity_scale = 0.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+__info_label_path = NodePath("../../Label")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MotorDelay/Paddle"]
+shape = SubResource( 2 )
+
+[node name="Polygon2D" type="Polygon2D" parent="MotorDelay/Paddle"]
+polygon = PoolVector2Array( -72, -8, 72, -8, 72, 8, -72, 8 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="MotorDelay"]
+node_a = NodePath("../Anchor")
+node_b = NodePath("../Paddle")
+
+[node name="Anchor" type="StaticBody2D" parent="MotorDelay"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MotorDelay/Anchor"]
+shape = SubResource( 3 )
+
+[node name="MotorImmediate" type="Node2D" parent="."]
+position = Vector2( 384, 384 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Paddle" type="RigidBody2D" parent="MotorImmediate"]
+gravity_scale = 0.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+delay_force = false
+__info_label_path = NodePath("../../Label2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MotorImmediate/Paddle"]
+shape = SubResource( 2 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="MotorImmediate/Paddle"]
+polygon = PoolVector2Array( -72, -8, 72, -8, 72, 8, -72, 8 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="MotorImmediate"]
+node_a = NodePath("../Anchor")
+node_b = NodePath("../Paddle")
+
+[node name="Anchor" type="StaticBody2D" parent="MotorImmediate"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MotorImmediate/Anchor"]
+shape = SubResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 512.0
+margin_right = 168.0
+margin_bottom = 526.0
+text = "Impulse:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 320.0
+margin_top = 512.0
+margin_right = 424.0
+margin_bottom = 526.0
+text = "Impulse:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 153.0
+margin_bottom = 22.0
+text = "Press \"Space\" to Reset"
+__meta__ = {
+"_edit_use_anchors_": false
+}
